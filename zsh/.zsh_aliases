@@ -1,0 +1,60 @@
+# Navigation Aliases
+alias c='clear'             # Clear the terminal screen
+alias h='history'           # Show command history
+# alias mkdir='mkdir -pv'     # Create a directory and any necessary parent directories
+# alias j='jobs -l'           # List active jobs
+alias l='ls -CF'            # List files with column format
+alias la='ls -A'            # List all files, including hidden files
+alias ll='ls -lah'          # List all files in long format, human-readable sizes
+alias lt='ls -ltr'          # List files sorted by date, oldest last
+
+# Git Aliases
+alias g='git'
+alias ga='git add'
+# alias gaa='git add --all'
+alias gb='git branch'
+alias gba='git branch -a'
+alias gbd='git branch -d'
+alias gco='git checkout'
+alias gcm='git checkout main'  # Assumes your main branch is named 'main'
+alias gcd='git checkout develop'  # Assumes you have a develop branch
+# alias gcb='git checkout -b'
+alias gd='git diff'
+# alias gdc='git diff --cached'
+# alias gds='git diff --staged'
+alias gf='git fetch'
+alias gl='git log'
+# alias glg='git log --graph --oneline --decorate --all'
+alias gm='git merge'
+alias gpl='git pull'
+alias gp='git push'
+alias gpr='git pull --rebase'
+# alias gps='git push origin $(git rev-parse --abbrev-ref HEAD)'
+# alias grh='git reset HEAD'
+# alias grhh='git reset --hard HEAD'
+alias gs='git status'
+alias gst='git stash'
+alias gstp='git stash pop'
+alias gsta='git stash apply'
+# alias gstd='git stash drop'
+alias gss='git status -s'
+alias gch='git cherry-pick'
+# alias gt='git tag'
+# alias gts='git tag -s'
+# alias gtv='git tag | sort -V'  # List tags sorted by version
+alias gri='git rebase -i HEAD~'
+
+# Other Aliases
+alias e='exit'              # Exit the terminal
+alias path='echo -e ${PATH//:/\\n}'  # Show $PATH with each entry on a new line
+alias ip='ip -c a'          # Show IP addresses with color
+alias psmem='ps auxf | sort -nr -k 4'  # Sort processes by memory usage
+alias pscpu='ps auxf | sort -nr -k 3'  # Sort processes by CPU usage
+alias df='df -h'            # Show disk usage in human-readable format
+alias du='du -h'            # Show directory sizes in human-readable format
+alias dus='du -sh *'        # Show sizes of directories and files in current directory
+alias ping='ping -c 5'      # Ping with 5 packets
+alias myip='curl ifconfig.me'  # Show external IP address
+alias weather='curl wttr.in'  # Get weather information
+alias update='sudo apt update && sudo apt upgrade'  # Update system (Debian-based)
+

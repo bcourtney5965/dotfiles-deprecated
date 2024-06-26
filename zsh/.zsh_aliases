@@ -47,7 +47,20 @@ alias gch='git cherry-pick'
 # alias gt='git tag'
 # alias gts='git tag -s'
 # alias gtv='git tag | sort -V'  # List tags sorted by version
-alias gri='git rebase -i HEAD~'
+alias grv='git rebase -v'
+function gri() {
+    local input="$1"
+    local count="${input//[!0-9]/}"
+    re='^[0-9]+$'
+    if [[ $count =~ $re ]]; then
+        echo "Rebasing on the last $count commits"
+        git rebase -i HEAD~$count
+    else
+        echo "Invalid input. Usage: gri -<number>"
+    fi
+}
+
+
 
 # Other Aliases
 alias e='exit'              # Exit the terminal

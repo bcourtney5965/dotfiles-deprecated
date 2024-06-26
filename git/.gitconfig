@@ -1,0 +1,86 @@
+[include]
+    path = ~/.gitconfig.local
+
+[hub]
+    protocol = https
+
+[core]
+    excludesfile = ~/.gitignore_global
+    editor = vim
+    whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
+    pager = less -FRSX
+
+[color]
+    ui = auto
+    diff = auto
+    status = auto
+    branch = auto
+    interactive = auto
+
+[color "branch"]
+    current = green bold
+    local = green bold
+    remote = yellow bold
+
+[color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+    whitespace = red reverse
+
+[color "status"]
+    added = green bold
+    changed = yellow bold
+    untracked = red bold
+
+# [alias]
+#     co = checkout
+#     ci = commit
+#     st = status -sb
+#     br = branch
+#     fo = fetch origin
+#     promote = !$ZSH/bin/git-promote
+#     wtf     = !$ZSH/bin/git-wtf
+#     rank-contributors = !$ZSH/bin/git-rank-contributors
+#     count   = !git shortlog -sn
+#     d = !git --no-pager diff
+#     dt  = difftool
+#     stat = !git --no-pager diff --stat
+#     remoteSetHead = remote set-head origin --auto
+#     defaultBranch = !git symbolic-ref refs/remotes/origin/HEAD | cut -d'/' -f4
+#     sweep = !git branch --merged $(git defaultBranch) | grep -E -v " $(git defaultBranch)$" | xargs -r git branch -d && git remote prune origin
+#     lg = log --graph --all --pretty=format:'%Cred%h%Creset - %s %Cgreen(%cr) %C(bold blue)%an%Creset %C(yellow)%d%Creset'
+#     serve = !git daemon --reuseaddr --verbose  --base-path=. --export-all ./.git
+#     m = !git checkout $(git defaultBranch)
+#     unstage = reset HEAD --
+
+[push]
+    default = simple
+
+[pull]
+    rebase = false
+
+[apply]
+    whitespace = nowarn
+
+[mergetool]
+    keepBackup = false
+
+[difftool]
+    prompt = false
+
+[help]
+    autocorrect = 1
+
+[credential]
+    helper = osxkeychain
+
+[diff "spaceman-diff"]
+    command = /opt/homebrew/bin/spaceman-diff
+
+[init]
+    defaultBranch = main
+
+[branch "master"]
+    mergeoptions = --no-edit

@@ -7,7 +7,7 @@ alias l='ls -CF'            # List files with column format
 alias la='ls -A'            # List all files, including hidden files
 alias ll='ls -lah'          # List all files in long format, human-readable sizes
 alias lt='ls -ltr'          # List files sorted by date, oldest last
-alias dotfiles='cd ~/dotfiles'       # Navigate to dotfiles
+alias dots='cd ~/dotfiles'       # Navigate to dotfiles
 alias scripts='cd /usr/local/bin'   # Navigate to scripts
 
 # zsh Aliases

@@ -1,0 +1,55 @@
+#!/bin/bash
+
+
+set -e  # Exit immediately if a command exits with a non-zero status.
+
+
+# Step 1: Download the 7-1 SASS folder/file structure
+REPO_URL="https://github.com/HugoGiraudel/sass-boilerplate/archive/refs/heads/master.zip"
+TEMP_DIR=$(mktemp -d)
+ZIP_FILE="$TEMP_DIR/sass-boilerplate.zip"
+
+echo "Downloading the 7-1 SASS folder/file structure..."
+curl -L -o "$ZIP_FILE" "$REPO_URL" || { echo "Download failed"; exit 1; }
+
+
+# Step 2: Find the user's current location on their machine
+CURRENT_DIR=$(pwd)
+echo "Current directory: $CURRENT_DIR"
+
+
+# Step 3: Ask for user confirmation before installing
+read -p "Do you want to install the 7-1 SASS structure in the current directory? (y/n) " -n 1 -r
+echo
+if [[ ! $REPLY =~ ^[Yy]$ ]]
+then
+    echo "Operation cancelled."
+    exit 1
+fi
+
+echo "Installing the 7-1 SASS folder/file structure in the current location..."
+unzip "$ZIP_FILE" -d "$TEMP_DIR" || { echo "Unzip failed"; exit 1; }
+mv "$TEMP_DIR/sass-boilerplate-master/stylesheets" "$CURRENT_DIR/stylesheets" || { echo "Move failed"; exit 1; }
+
+
+# Step 4: Check if SASS is globally installed, if not, install it
+if ! command -v sass &> /dev/null; then
+    echo "SASS is not installed. Installing SASS globally..."
+    npm install -g sass || { echo "SASS installation failed"; exit 1; }
+else
+    echo "SASS is already installed."
+fi
+
+
+# Step 5: Navigate to the root of the current project and run the SASS command
+cd "$CURRENT_DIR"
+mkdir -p dist  # Create dist directory if it doesn't exist
+echo "Compiling SASS files..."
+sass stylesheets/main.scss dist/main.css || { echo "SASS compilation failed"; exit 1; }
+
+
+# Cleanup
+rm -rf "$TEMP_DIR"
+
+
+echo "Done!"

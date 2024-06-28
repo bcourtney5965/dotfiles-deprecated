@@ -103,6 +103,8 @@ unsetopt share_history
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+export PATH=$HOME/.local/bin:$PATH
+
 # Source aliases
 if [ -f ~/.zsh_aliases ]; then
     source ~/.zsh_aliases

@@ -47,7 +47,7 @@ alias gch='git cherry-pick'
 # alias gt='git tag'
 # alias gts='git tag -s'
 # alias gtv='git tag | sort -V'  # List tags sorted by version
-alias grv='git rebase -v'
+alias grv='git remote -v'
 function gri() {
     local input="$1"
     local count="${input//[!0-9]/}"

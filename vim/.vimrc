@@ -20,8 +20,8 @@ set wrap
 set expandtab
 
 " Set the number of spaces a tab counts for
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 
 " Enable auto-indentation
 set autoindent
@@ -43,7 +43,7 @@ set smartcase
 set hlsearch
 
 " Set clipboard to use the system clipboard
-set clipboard=unnamedplus
+" set clipboard=unnamedplus
 
 " Set the color scheme
 colorscheme desert
